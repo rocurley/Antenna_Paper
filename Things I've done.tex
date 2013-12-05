@@ -1,0 +1,61 @@
+\documentclass[final]{article}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{grffile} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\newcommand{\bra} [1] {\left\langle#1\right|}
+\newcommand{\ket} [1] {\left|#1\right\rangle}
+\newcommand{\braket} [2] {\left\langle#1|#2\right\rangle}
+\newcommand{\ev} [1] {\left\langle#1\right\rangle}
+\newcommand{\Px} [0] {\begin{pmatrix} 0 & 1\\1 &0 \end{pmatrix}}
+\newcommand{\Py} [0] {\begin{pmatrix} 0 & -i\\i &0 \end{pmatrix}}
+\newcommand{\Pz} [0] {\begin{pmatrix} 1 & 0\\0 &-1 \end{pmatrix}}
+
+\begin{document}
+\begin{flushright}
+Roger Curley
+\end{flushright}
+Starting with an approximation of three coupled simple harmonic oscillators:
+\[H=\sum_i \omega_i a_i^\dagger a_i-\sum_{\langle i,j\rangle} g_{ij} a_i^\dagger a_j\]
+(With the understanding that \(g_{ij}=g_{ji}\), and all g are real.)\\
+We want a system where an excitation in the first state can fully transfer to the third state. Conservation of energy therefore requires that \(\omega_1=\omega_3\).
+We can switch to a more tractable basis:
+\[\vec a=\begin{pmatrix}(g_{23}a_1-g_{12}a_3)/\bar g\\a_2\\(g_{12}a_1+g_{23}a_3)/\bar g\end{pmatrix}=\begin{pmatrix}a_D\\a_2\\a_B\end{pmatrix}\]
+\[\bar g=\sqrt{g_{12}^2+g_{23}^2}\]
+\[H=\omega_1\left(a_D^\dagger a_D+a_B^\dagger a_B\right)+\omega_2a_2^\dagger a_2-\bar g\left(a_2^\dagger a_B+a_B^\dagger a_2\right)\]
+Note that, in the Heisenberg picture, \(a_D(t)=e^{-i\omega_1 t} a_D(0)\): The "dark state" operator is static, up to phase. Therefore, excitations of the dark state are preserved by time evolution.\\
+This implies a useful option: If \(g\)s are changed adiabatically from \(g_{12}=0\) to \(g_{23}=0\), then excitations in the first oscillator will become excitations of the third: the dark state is transfered.\\
+If we want to consider a system with damping, we can couple each oscillator to an infinite series of oscillators.
+\[H=\omega_0 a^\dagger a+\sum_k (g_k a^\dagger b_k+g_k^* b_k^\dagger a+\omega_k b_k^\dagger b_k)\]
+We take the continuum limit and get:
+\[\dot a(t)=-i\left(\omega_0 a(t)+\int_{-\infty}^\infty \rho(\omega) g^*(\omega) b(\omega) d\omega\right)\]
+\[\dot b(\omega,t)=-i(g(\omega) a+\omega b(\omega,t))\]
+Suppose that \(\rho(\omega)g(\omega)g^*(\omega)\) is slowly varying. In the limit, for some \(\gamma\), we get:
+\[\dot a(t)=-i\omega_0 a(t)-i\int_{-\infty}^\infty \rho(\omega) g^*(\omega) 
+e^{-i\omega t}b(\omega,0)d\omega- \frac{\gamma}{2} a(t)\]
+The middle function is some operator function of time:
+\[\dot a(t)=-i\omega_0 a(t)-\sqrt{\gamma}a_{\text{in}}(t)- \frac{\gamma}{2} a(t)\]
+We can integrate this result back into the original problem to get the system with damping:
+\[\begin{pmatrix}\dot a\\\dot b\\\dot c\end{pmatrix}=\begin{pmatrix}-i\omega_a-\gamma_a/2 &ig_{ab} & 0\\ig^*_{ab}&-i\omega_b-\gamma_b/2 & ig_{bc}\\
+0& ig^*_{bc}&-i\omega_c-\gamma_c/2\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix}+
+\begin{pmatrix} \sqrt{\gamma}_a a_{\text{in}}\\\sqrt{\gamma}_b b_{\text{in}}\\\sqrt{\gamma}_c c_{\text{in}}\end{pmatrix}\]
+By switching to the Laplace domain, we can solve this system. We're interested in minimizing the influence of \(B_{\text{in}}\) on A and C. Via atrocious amounts of algebra, we can show that this is achieved by setting \(\omega_a=\omega_c\) and \(\gamma_a=\gamma_c\): the impedance match condition. If we define:
+\[\begin{pmatrix}a\\c\\b\end{pmatrix}=\vec v\]
+\[\frac{d}{dt} \vec v=\begin{pmatrix} -\gamma/2 & 0 & ig\\0 & -\gamma/2 & ih\\ig& ih & i\Delta-\Gamma/2\end{pmatrix}\vec v+
+\begin{pmatrix} \sqrt{\gamma}&0&0\\0&\sqrt{\gamma}&0\\0&0&\sqrt{\Gamma}\end{pmatrix}\vec v_{\text{in}}\]
+\[\frac{d}{dt} \vec v=M\vec v+r\vec v_{\text{in}}\]
+If we define the output as:
+\[\vec v_{\text{out}}=\vec v_{\text{in}}-r \vec v\]
+And examine the contribution to \(c_{\text{out}}\) from each of the inputs, we can do some further optimization. The signal is the influence of \(a_{\text{in}}\) on \(c_{\text{out}}\), and the noise is the influnce of \(b_{\text{in}}\). At frequency \(\Delta \omega\) off resonance, we get a signal-to-noise ratio of:
+\[\frac{\gamma}{\Gamma}\frac{g^2}{(\gamma/2)^2+\Delta \omega}\]
+\end{document}

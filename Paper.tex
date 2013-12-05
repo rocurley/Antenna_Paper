@@ -1,0 +1,104 @@
+\documentclass[final]{article}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{grffile} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\pagestyle{empty}
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\newcommand{\bra} [1] {\left\langle#1\right|}
+\newcommand{\ket} [1] {\left|#1\right\rangle}
+\newcommand{\braket} [2] {\left\langle#1|#2\right\rangle}
+\newcommand{\ev} [1] {\left\langle#1\right\rangle}
+\newcommand{\Px} [0] {\begin{pmatrix} 0 & 1\\1 &0 \end{pmatrix}}
+\newcommand{\Py} [0] {\begin{pmatrix} 0 & -i\\i &0 \end{pmatrix}}
+\newcommand{\Pz} [0] {\begin{pmatrix} 1 & 0\\0 &-1 \end{pmatrix}}
+
+\begin{document}
+TODO:\\
+Make notation consistent: \(a_i\) vs a,b,c.\\
+Add real person citations
+
+\subsection*{Introduction}
+\subsection*{Background}
+One source of noise in antennas is thermal noise. The thermal motion of electrons creates a random current, carrying a power proportional to the temperature of the electronics. In many cases this is not the dominant source of noise: other competing signals will cause far more trouble. However, thermal noise is strong enough to be a problem when the signal is at a very low frequency, where thermal sources generate little competition. Note that this is not a power transfer problem: the antenna signal is recorded, but it's not distinguishable from the thermal noise of the circuitry. Current radio telescopes compensate for this effect by using liquid helium cooling to keep thermal noise down.
+
+One such source of particular interest is the 21 cm H1 line, associated with the transition of a hydrogen atom from antiparallel to parallel spins. The 21 cm line allows the mapping of cold hydrogen gas, making it of considerable interest to astronomers. 21 cm lines are very faint, as the transition associated with them is very rare.
+\subsection*{Theory stuff}
+We'll be investigating a toy model for an antenna coupled to an optical cavity: three coupled simple harmonic oscillators in the rotating wave approximation.
+\[H=\sum_i \omega_i a_i^\dagger a_i-\sum_{\langle i,j\rangle} g_{ij} a_i^\dagger a_j\]
+(With the understanding that \(g_{ij}=g_{ji}\), and all g are real.)\\
+We want a system where an excitation in the first state can fully transfer to the third state. Conservation of energy therefore requires that \(\omega_1=\omega_3\).
+This assumption allows us to switch to a more tractable basis:
+\[\vec a=\begin{pmatrix}(g_{23}a_1-g_{12}a_3)/\bar g\\a_2\\(g_{12}a_1+g_{23}a_3)/\bar g\end{pmatrix}=\begin{pmatrix}a_D\\a_2\\a_B\end{pmatrix}\]
+\[\bar g=\sqrt{g_{12}^2+g_{23}^2}\]
+\[H=\omega_1\left(a_D^\dagger a_D+a_B^\dagger a_B\right)+\omega_2a_2^\dagger a_2-\bar g\left(a_2^\dagger a_B+a_B^\dagger a_2\right)\]
+Note that, in the Heisenberg picture, \(a_D(t)=e^{-i\omega_1 t} a_D(0)\): The "dark state" operator is static, up to phase. Therefore, excitations of the dark state are preserved by time evolution.\\
+This implies a useful option: If \(g\)s are changed adiabatically from \(g_{12}=0\) to \(g_{23}=0\), then excitations in the first oscillator will become excitations of the third: the dark state is transfered. (http://arxiv.org/abs/1205.5284)
+
+However, we want to consider a system with damping. We can do so using the input-operator formalism: coupling each oscillator to an infinite series of oscillators. For one oscillator \(a\) coupled to an infinite set of oscilators \(b_k\), we have:
+\[H=\omega_0 a^\dagger a+\sum_k (g_k a^\dagger b_k+g_k^* b_k^\dagger a+\omega_k b_k^\dagger b_k)\]
+We take the continuum limit and get:
+\[\dot a(t)=-i\left(\omega_0 a(t)+\int_{-\infty}^\infty \rho(\omega) g^*(\omega) b(\omega) d\omega\right)\]
+\[\dot b(\omega,t)=-i(g(\omega) a+\omega b(\omega,t))\]
+Suppose that \(\rho(\omega)g(\omega)g^*(\omega)\) is slowly varying. In the limit, for some \(\gamma\), we get:
+\[\dot a(t)=-i\omega_0 a(t)-i\int_{-\infty}^\infty \rho(\omega) g^*(\omega) 
+e^{-i\omega t}b(\omega,0)d\omega- \frac{\gamma}{2} a(t)\]
+The integral is some operator function of time:
+\[\dot a(t)=-i\omega_0 a(t)-\sqrt{\gamma}a_{\text{in}}(t)- \frac{\gamma}{2} a(t)\]
+We can integrate this result back into the original problem to get the system with damping (now using a,b, and c to represent the three oscillators):
+\[\begin{pmatrix}\dot a\\\dot b\\\dot c\end{pmatrix}=\begin{pmatrix}-i\omega_a-\gamma_a/2 &ig_{ab} & 0\\ig^*_{ab}&-i\omega_b-\gamma_b/2 & ig_{bc}\\
+0& ig^*_{bc}&-i\omega_c-\gamma_c/2\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix}+
+\begin{pmatrix} \sqrt{\gamma}_a a_{\text{in}}\\\sqrt{\gamma}_b b_{\text{in}}\\\sqrt{\gamma}_c c_{\text{in}}\end{pmatrix}\]
+By switching to the Laplace domain, we can solve this system. We're interested in minimizing the influence of \(B_{\text{in}}\) on A and C. Via atrocious amounts of algebra, we can show that this is achieved by setting \(\omega_a=\omega_c\) and \(\gamma_a=\gamma_c\): the impedance match condition. If we define:
+\[\begin{pmatrix}a\\c\\b\end{pmatrix}=\vec v\]
+\[\frac{d}{dt} \vec v=\begin{pmatrix} -\gamma/2 & 0 & ig\\0 & -\gamma/2 & ih\\ig& ih & i\Delta-\Gamma/2\end{pmatrix}\vec v+
+\begin{pmatrix} \sqrt{\gamma}&0&0\\0&\sqrt{\gamma}&0\\0&0&\sqrt{\Gamma}\end{pmatrix}\vec v_{\text{in}}\]
+\[\frac{d}{dt} \vec v=M\vec v+r\vec v_{\text{in}}\]
+If we define the output as:
+\[\vec v_{\text{out}}=\vec v_{\text{in}}-r \vec v\]
+And examine the contribution to \(c_{\text{out}}\) from each of the inputs, we can do some further optimization. The signal is the influence of \(a_{\text{in}}\) on \(c_{\text{out}}\), and the noise is the influnce of \(b_{\text{in}}\). At frequency \(\Delta \omega\) off resonance, we get a signal-to-noise ratio of:
+\[\frac{\gamma}{\Gamma}\frac{g^2}{(\gamma/2)^2+\Delta \omega}\]
+For maximal information transfer at resonance, we want the damping (in all components) to be as small as possible, calling for very high Q factor components.
+
+TODO: Make a non-terrible transition that says: "Now we'll justify treating everything as SHOs".
+
+One antenna with a high Q-factor is a patch antenna: two parallel conducting plates. This can be modeled as a microstrip transmission line, with a resistive and capacitive connection across it at both ends. (Microstrip antenna handbook, Nikolova lecture notes.
+
+\input{Antenna-circ.pdf_tex}\\
+TODO: Diagram showing which physical dimension is which.\\
+Conductance:
+\[G=\frac{Wk}{2\eta_0} \left[1-\frac{1}{24}\left(hk\right)^2\right]\]
+Capacitance: \(B=\omega C\):
+\[B=\frac{Wk}{\eta_0} \left[\frac{1}{2}-\frac{1}{\pi} \ln\left(hk\right)\right]\]
+k is the magnitude of the wavenumber of the signal traveling through the antenna.
+\[k=\frac{\omega}{c}\sqrt{\epsilon_{r_\text{eff}}}\]
+At frequencies below 8 GHz:
+\[\epsilon_{r_{\text{eff}}}=\frac{\epsilon_r+1}{2}+\frac{\epsilon_r-1}{2}\frac{1}{\sqrt{1+12h/W}}\]
+Let the propagation constant of the antenna \(\gamma=\alpha_c+\alpha_d+i\beta\). \(\alpha_c\) represents the dielectric losses, and \(\alpha_c\) the capacitive losses.
+\[\alpha_d= \epsilon_r \frac{\epsilon_{r_{\text{eff}}}-1}{\epsilon_r-1} \frac{\omega}{c} \tan(\delta)\]
+Neglecting losses to surface roughness, we have the truly appalling expression:\\
+TODO: make sure every material property is defined.
+\[\alpha_c=\frac{\sqrt{\epsilon_{r_{\text{eff}}}}}{2\eta_0} \sqrt{\frac{\omega \mu}{2\sigma}} \frac{\sqrt{\epsilon_{r_{\text{eff}}}} Z_0}{\eta_0} \frac{1}{h}\left(1+\frac{\frac{2}{3}}{\frac{W'}{h}+\frac{13}{9}}\right)
+\left(1+\frac{W'}{h}+\frac{5t}{4\pi W}+\frac{W'-W}{t}\right)\]
+\[W'=W+\frac{5t}{4\pi}\left(1+\ln\left(\frac{2h}{t}\right)\right)\]
+\[Z_0=\frac{\eta_0}{\sqrt{\epsilon_{r_{\text{eff}}}}}\left[\frac{W}{h}+1.393+\frac{2}{3}\ln\left(\frac{W}{h}+1.44\right)\right]^{-1}\]
+To test how well this can be approximated as a SHO coupled to the environment, we computed the admittance of a copper patch antenna, designed to operate at 1 GHz, and fit an oscillator to it. Particularly near resonance, this is a good fit.\\
+\includegraphics[width=.75\linewidth]{Patch_Antenna_Admittance_2}\\
+TODO: consistent font in graphs, impedance units\\
+TODO: Make sure the below is actually a sane thing to say.\\
+We have the Q due to radiation losses of \(Q_{\text{rad}}=6.816\) and Q due to losses within the microstrip of \(Q_{\alpha}=18920\).\\
+TODO: Another nonterrible transition.\\
+TODO: Circuit diagram of membrane.\\
+If the membrane is kept at a relatively large DC offset, its behavior can be approximated as linear, and it too can be treated as a SHO.\\
+TODO: Graph of membrane response vs SHO approximation?
+\end{document}
+\end{document}

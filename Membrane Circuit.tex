@@ -1,0 +1,167 @@
+\documentclass[final]{article}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{grffile} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\newcommand{\bra} [1] {\left\langle#1\right|}
+\newcommand{\ket} [1] {\left|#1\right\rangle}
+\newcommand{\braket} [2] {\left\langle#1|#2\right\rangle}
+\newcommand{\ev} [1] {\left\langle#1\right\rangle}
+\newcommand{\Px} [0] {\begin{pmatrix} 0 & 1\\1 &0 \end{pmatrix}}
+\newcommand{\Py} [0] {\begin{pmatrix} 0 & -i\\i &0 \end{pmatrix}}
+\newcommand{\Pz} [0] {\begin{pmatrix} 1 & 0\\0 &-1 \end{pmatrix}}
+
+\begin{document}
+\begin{flushright}
+Roger Curley
+\end{flushright}
+Considering spring-mounted capacitor attached to a voltage (time varying?):
+\[L=m\frac{\dot x^2}{2}-\left(k\frac{(x-x_0)^2}{2}+\frac{x}{A\epsilon_0} \frac{q^2}{2}-qV\right)\]
+\[\frac{d}{dt} \frac{\partial L}{\partial \dot x}=\frac{\partial L}{\partial x}\]
+\[m\ddot x=-k(x-x_0)-\frac{1}{A\epsilon_0} \frac{q^2}{2}\]
+\[\frac{d}{dt} \frac{\partial L}{\partial \dot q}=\frac{\partial L}{\partial q}\]
+\[0=-\frac{x}{A\epsilon_0} q+V\]
+\[q=\frac{VA\epsilon_0}{x}\]
+\[m\ddot x=-k(x-x_0)-\frac{1}{A\epsilon_0} \frac{1}{2}\left(\frac{VA\epsilon_0}{x}\right)^2\]
+\[m\ddot x=-k(x-x_0)-\frac{1}{A\epsilon_0} \frac{q^2}{2}\]
+\[x=\frac{VA\epsilon_0}{q}\]
+\[m\ddot x=-k(x-x_0)-\frac{1}{2}\frac{V^2A\epsilon_0}{x^2}\]
+Define:
+\[0=-k(x_e-x_0)-\frac{1}{4}\frac{V_0^2A\epsilon_0}{x_e^2}\]
+\[x=x_e(1+\epsilon)\]
+\[mx_0 \ddot \epsilon=-k(x_e+\epsilon x_0-x_0)-\frac{1}{2}\frac{V^2A\epsilon_0}{(x_e+\epsilon x_e)^2}\]
+If we expand to first order in \(\epsilon\):
+\[mx_e \ddot \epsilon=-k(x_e-x_0)-kx_e\epsilon-\frac{1}{2}\frac{V^2A\epsilon_0}{x_e^2}(1-2\epsilon)\]
+Let's also take \(V=(1+\delta) V_0\):
+\[mx_e \ddot \epsilon=-k(x_e-x_0)-kx_e\epsilon-\frac{1}{2}\frac{(1+\delta)^2 V_0^2A\epsilon_0}{x_e^2}(1-2\epsilon)\]
+To first order in \(\delta\) or \(\epsilon\) but not both:
+\[mx_e \ddot \epsilon=-k(x_e-x_0)-kx_e\epsilon-\frac{1}{2}\frac{V_0^2A\epsilon_0}{x_e^2}(1+2\delta-2\epsilon)\]
+\[mx_e \ddot \epsilon=-kx_e\epsilon-\frac{V_0^2A\epsilon_0}{x_e^2}(\delta-\epsilon)\]
+\[mx_e \ddot \epsilon+\left(kx_e-\frac{V_0^2A\epsilon_0}{x_e^2}\right)\epsilon=-\frac{V_0^2A\epsilon_0}{x_e^2}\delta\]
+\[C_0\equiv\frac{A\epsilon_0}{x_e}\]
+\[mx_e \ddot \epsilon+\left(kx_e-\frac{V_0^2C_0}{x_e}\right)\epsilon=-\frac{V_0^2C_0}{x_e}\delta\]
+\[\frac{mx_e^2}{V_0^2C_0} \ddot \epsilon+\left(\frac{kx_e^2}{V_0^2C_0}-1\right)\epsilon=-\delta\]
+By definition:
+\[0=-k(x_e-x_0)-\frac{1}{4}\frac{V_0^2C_0}{x_e}\]
+\[4\left(\frac{x_0-x_e}{x_e}\right)=\frac{V_0^2C_0}{kx_e^2}\]
+\[\frac{mx_e^2}{V_0^2C_0} \ddot \epsilon+\left(\frac{1}{4}\frac{x_e}{x_0-x_e}-1\right)\epsilon=-\delta\]
+\[\frac{mx_e^2}{V_0^2C_0} \ddot \epsilon+\left(\frac{1}{4}\frac{5x_e-4x_0}{x_0-x_e}\right)\epsilon=-\delta\]
+Substituting in some greek letters to cover up the annoying factors:
+\[\mu \ddot \epsilon+\kappa \epsilon=-\delta\]
+At this point I'm going to go ahead and assume there is some friction:
+\[\mu \ddot \epsilon+\gamma \dot \epsilon+\kappa \epsilon= -\delta\]
+Let's take the Fourier transform:
+\[(-\omega^2\mu+i\omega\gamma+\kappa)\epsilon(\omega)= -\delta(\omega)\]
+We want to convert this to an impedance:
+\[I=\dot q=\frac{d}{dt}\frac{V A\epsilon_0}{x}=\frac{d}{dt}\frac{V_0 A\epsilon_0}{x_e} (1+\delta-\epsilon)=\frac{V_0 A\epsilon_0}{x_e} (\dot \delta-\dot \epsilon)\]
+\[I(\omega)=i\omega C_0 (\delta-\epsilon)\]
+\[I(\omega)=i\omega C_0 \left(1+\frac{1}{-\omega^2\mu+i\omega\gamma+\kappa}\right)\delta\]
+\[Z=\left[C_0 \left(\frac{1}{1/(i\omega)}+\frac{1}{i\omega\mu+\kappa/(i\omega)+\gamma}\right)\right]^{-1}\]
+{\centering \includegraphics{eq-circ} \par}
+Denote the bottom capacitor as \(C_1\) and the top as \(C_2\):
+\[C_1=\frac{C_0}{\kappa}=C_0\left[\frac{k x_e^2}{V_0^2 C_0}-1\right]^{-1}=C_0 \frac{E_c}{E_s-E_c}\]
+Where \(E_c\) is the energy in the capacitor at equilibrium, and the \(E_s\) is the energy the spring would have if it was displaced as far from equilibrium as it actually is from the plate.\\
+Alternatively:
+\[0=-k(x_e-x_0)-\frac{1}{4}\frac{V_0^2A\epsilon_0}{x_e^2}\]
+\[(x_0-x_e)=\frac{1}{4}\frac{V_0^2A\epsilon_0}{kx_e^2}\]
+\[4(x_0/x_e-1)=\frac{V_0^2C_0}{kx_e^2}\]
+\[C_0\left[\frac{k x_e^2}{V_0^2 C_0}-1\right]^{-1}=C_0\left[\frac{1}{4(x_0/x_e-1)}-1\right]^{-1}=
+C_0\left[\frac{1-4(x_0/x_e-1)}{4(x_0/x_e-1)}\right]^{-1}=C_0\frac{x_0/x_e-1}{5/4-x_0/x_e}\]
+Note that \(x_0/x_e>1\)
+\[R=\frac{\gamma}{C_0}\]
+\[L=\frac{\mu}{C_0}=-\frac{1}{C_0} \frac{mx_e^3}{V_0^2 A \epsilon_0}=\frac{mx_e^2}{V_0^2 C_0^2}\]
+\[C_2=C_0\]
+Let's take a stab at quantizing this attached to an LC circuit.\\
+{\centering \includegraphics{eq-circ_2} \par}
+First, we're going to define \(\Phi=\int_{-\infty}^t V dt\). Equating current in to current out yields:
+\[\ddot \Phi_a C_1=(\Phi_b-\Phi_a)/L_1\]
+\[(\Phi_b-\Phi_a)/L_1+\ddot \Phi_b C_2=(\Phi_c-\Phi_b)/L_3\]
+\[(\Phi_c-\Phi_b)/L_3=-\ddot \Phi_c C_3\]
+We can find a Lagrangian such that the above are its equations of motion:
+\[\mathcal L=\frac{1}{2}\left(\dot \Phi_a^2 C_1- \Phi_a^2/L_1\right)+\frac{1}{2}\left(\dot \Phi_b^2C_2- \Phi_b^2(1/L_1+1/L_3)\right)+
+\frac{1}{2}\left(\dot \Phi_c^2 C_3- \Phi_c^2/L_3\right)-\left(-\Phi_a \Phi_b/L_1-\Phi_b \Phi_c/L_3\right)\]
+\[\frac{\partial \mathcal L}{\partial \dot \Phi_a}=q_a=C_1 \dot \Phi_a\]
+\[\frac{\partial \mathcal L}{\partial \dot \Phi_b}=q_b=C_2 \dot \Phi_b\]
+\[\frac{\partial \mathcal L}{\partial \dot \Phi_c}=q_c=C_3 \dot \Phi_c\]
+\[\mathcal H=\frac{1}{2}\left(q_a^2/C_1+ \Phi_a^2/L_1\right)+\frac{1}{2}\left(q_b^2/C_2+ \Phi_b^2(1/L_1+1/L_3)\right)+
+\frac{1}{2}\left(q_c^2/C_3+ \Phi_c^2/L_3\right)+\left(-\Phi_a \Phi_b/L_1-\Phi_b \Phi_c/L_3\right)\]
+\[\mathcal H=\frac{1}{2}\left(q_a^2/C_1+ (\Phi_a-\Phi_b)^2/L_1\right)+\frac{1}{2}\left(q_b^2/C_2\right)+
+\frac{1}{2}\left(q_c^2/C_3+ (\Phi_c-\Phi_b)^2/L_3\right)\]
+Switching to quantum and rewriting slightly:
+\[H=\frac{1}{2}\left(\frac{q_a^2}{C_1}+\frac{q_b^2}{C_2}+\frac{q_c^2}{C_3}\right)+
+\frac{1}{2}\left(\frac{(\Phi_a-\Phi_b)^2}{L_1}+\frac{(\Phi_c-\Phi_b)^2}{L_3}\right)\]
+This is slightly odd: the mechanical analog is three unanchored masses floating in space.\\
+I'm going to write the above in terms of elastances:
+\[H=\frac{1}{2}\left(q_a^2 E_1+q_b^2E_2+q_c^2E_3\right)+
+\frac{1}{2}\left(\frac{(\Phi_a-\Phi_b)^2}{L_1}+\frac{(\Phi_c-\Phi_b)^2}{L_3}\right)\]
+No matter what change of variables I do, unless two of the capacitances are the same I cannot prevent momentum coupling, which is weird.\\
+However:
+\[\Phi_1=\frac{\Phi_a-\Phi_b}{\sqrt{2}}\]
+\[\Phi_2=\frac{\Phi_a+\Phi_b-2\Phi_c}{\sqrt{6}}\]
+\[\Phi_3=\frac{\Phi_a+\Phi_b+\Phi_c}{\sqrt{3}}\]
+\[\Phi_a=\frac{\sqrt{3}\Phi_1+\Phi_2+\sqrt{2}\Phi_3}{\sqrt{6}}\]
+\[\Phi_b=\frac{-\sqrt{3}\Phi_1+\Phi_2+\sqrt{2}\Phi_3}{\sqrt{6}}\]
+\[\Phi_c=\frac{-\sqrt{2}\Phi_2+\Phi_3}{\sqrt{3}}\]
+\[z=\frac{\sqrt{3}}{2} \frac{E_1-E_2}{E_3}\]
+\[\alpha=\frac{1}{\sqrt{2}} \sqrt{1+\sqrt{\frac{1}{1+z^2}}}\]
+\[\beta=\frac{1}{\sqrt{2}} \sqrt{1-\sqrt{\frac{1}{1+z^2}}}\]
+\[\Phi_1=\alpha q_\alpha+\beta q_\beta\]
+\[\Phi_2=\beta q_\alpha-\alpha q_\beta\]
+\[\Phi_a=\frac{\sqrt{3}(\alpha \Phi_\alpha+\beta \Phi_\beta)+(\beta \Phi_\alpha-\alpha \Phi_\beta)+2\Phi_3}{\sqrt{12}}\]
+\[\Phi_b=\frac{-\sqrt{3}(\alpha \Phi_\alpha+\beta \Phi_\beta)+(\beta \Phi_\alpha-\alpha \Phi_\beta)+2\Phi_3}{\sqrt{12}}\]
+\[\Phi_c=\frac{-(\beta \Phi_\alpha-\alpha \Phi_\beta)+\Phi_3}{\sqrt{3}}\]
+\[H=\frac{1}{2}\left(q_a^2 E_1+q_b^2E_2+q_c^2E_3\right)+
+\frac{1}{2}\left(\frac{(\Phi_a-\Phi_b)^2}{L_1}+\frac{(\Phi_c-\Phi_b)^2}{L_3}\right)\]
+Applying the new variables:
+\[H=\frac{1}{2}\left(q_a^2 E_1+ q_b^2 E_2+q_c^2 E_3\right)+
+\frac{1}{2}\left(\Phi_1^2\left(\frac{1}{L_1}+\frac{1}{2L_3}\right)-\frac{\sqrt{3}}{L_3}\Phi_1\Phi_2+\frac{\Phi_2^2}{\sqrt{2}L_3}\right)\]
+Note that the above contains no \(\Phi_3\) terms. Let's assume that we're in a \(q_3=0\) eigenstate.
+\[q_a=\frac{\sqrt{3}(\alpha q_\alpha+\beta q_\beta)+(\beta q_\alpha-\alpha q_\beta)}{\sqrt{12}}\]
+\[q_b=\frac{-\sqrt{3}(\alpha q_\alpha+\beta q_\beta)+(\beta q_\alpha-\alpha q_\beta)}{\sqrt{12}}\]
+\[q_c=\frac{-(\beta q_\alpha-\alpha q_\beta)}{\sqrt{3}}\]
+\[H=\frac{1}{2}\left(q_a^2 E_1+ q_b^2 E_2+q_c^2 E_3\right)+
+\frac{1}{2}\left(\Phi_1^2\left(\frac{1}{L_1}+\frac{1}{2L_3}\right)-\frac{\sqrt{3}}{L_3}\Phi_1\Phi_2+\frac{\Phi_2^2}{\sqrt{2}L_3}\right)\]
+\[q_a^2=\frac{3(\alpha q_\alpha+\beta q_\beta)^2+
+2\sqrt{3}(\alpha q_\alpha+\beta q_\beta)(\beta q_\alpha-\alpha q_\beta)+(\beta q_\alpha-\alpha q_\beta)^2}{12}\]
+\[q_a^2=\frac{3(\alpha^2 q_\alpha^2+2\alpha\beta q_\alpha q_\beta+\beta^2 q_\beta^2)+
+2\sqrt{3}(\alpha\beta (q_\alpha^2-q_\beta^2)+q_\alpha q_\beta(\beta^2-\alpha^2))+(\beta^2 q_\alpha^2-2\alpha\beta q_\alpha q_\beta-\alpha^2 q_\beta^2)}{12}\]
+These variables were chosen specifically to cancel momentum cross terms, so we can safely ignore \(q_\alpha q_\beta\) terms:
+\[q_a^2=\frac{3(\alpha^2 q_\alpha^2+\beta^2 q_\beta^2)+
+2\sqrt{3}(\alpha\beta (q_\alpha^2-q_\beta^2))+(\beta^2 q_\alpha^2-\alpha^2 q_\beta^2)}{12}\]
+\[q_a^2=\frac{(3\alpha^2+2\sqrt{3}\alpha \beta+\beta^2)q_\alpha+(-\alpha^2-2\sqrt{3}\alpha \beta+3\beta^2)q_\beta}{12}\]
+\[q_a^2=\frac{(1+2\alpha^2+2\sqrt{3}\alpha \beta)q_\alpha+(3-4\alpha^2-2\sqrt{3}\alpha \beta)q_\beta}{12}\]
+\[q_b=\frac{-\sqrt{3}(\alpha q_\alpha+\beta q_\beta)+(\beta q_\alpha-\alpha q_\beta)}{\sqrt{12}}\]
+Again dropping cross terms:
+\[q_b^2=\frac{3(\alpha^2 q_\alpha^2+\beta^2 q_\beta^2)-2\alpha\beta\sqrt{3}(q_\alpha^2-q_\beta^2)+
+(\beta^2 q_\alpha^2-\alpha^2 q_\beta^2)}{12}\]
+\[q_b^2=\frac{(3\alpha^2-2\sqrt{3}\alpha \beta+\beta^2)q_\alpha^2+(-\alpha^2+2\sqrt{3}\alpha\beta+3\beta^2)q_\beta^2}{12}\]
+\[q_b^2=\frac{(1+2\alpha^2-2\sqrt{3}\alpha \beta)q_\alpha^2+(3-4\alpha^2+2\sqrt{3}\alpha\beta)q_\beta^2}{12}\]
+\[q_c^2=\frac{\beta^2 q_\alpha^2+\alpha^2 q_\beta^2}{3}\]
+\begin{multline*}
+q_a^2 E_1+ q_b^2 E_2+q_c^2 E_3=\frac{(1+2\alpha^2+2\sqrt{3}\alpha \beta)q_\alpha+(3-4\alpha^2-2\sqrt{3}\alpha \beta)q_\beta}{12} E_1+\\
+\frac{(1+2\alpha^2-2\sqrt{3}\alpha \beta)q_\alpha^2+(3-4\alpha^2+2\sqrt{3}\alpha\beta)q_\beta^2}{12}E_2+
+\frac{\beta^2 q_\alpha^2+\alpha^2 q_\beta^2}{3}E_3
+\end{multline*}
+\[\alpha\beta=\frac{1}{2}\sqrt{1-\frac{1}{1+z^2}}=\frac{1}{2}\sqrt{\frac{z^2}{1+z^2}}\]
+\[\alpha^2-\beta^2=\sqrt{\frac{1}{1+z^2}}\]
+Let:
+\[z^*=\frac{\sqrt{3}}{2} \frac{E_1+E_2}{E_3}\]
+\begin{multline*}
+q_a^2 E_1+ q_b^2 E_2+q_c^2 E_3=\frac{\beta^2 q_\alpha^2+\alpha^2 q_\beta^2}{3}E_3+\\
+\frac{((1+2\alpha^2)(E_1+E_2)+2\sqrt{3}\alpha \beta(E_1-E_2))q_\alpha^2+((3-4\alpha^2)(E_1+E_2)-2\sqrt{3}\alpha \beta(E_1-E_2))q_\beta^2}{12} E_1
+\end{multline*}
+\begin{multline*}
+\frac{q_a^2 E_1+ q_b^2 E_2+q_c^2 E_3}{E_3}=\frac{\beta^2 q_\alpha^2+\alpha^2 q_\beta^2}{3}+\\
+\frac{((1+2\alpha^2)2/\sqrt{3}z^*+4\alpha \beta z)q_\alpha^2+((3-4\alpha^2)2/\sqrt{3}z^*-4\alpha \beta z)q_\beta^2}{12} E_1
+\end{multline*}
+\end{document}

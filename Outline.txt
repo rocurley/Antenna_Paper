@@ -1,0 +1,40 @@
+*Introduction
+*Background
+    *Problem we're trying to solve
+        *Explanation of thermal noise problem
+        *Possible applications for reducing it 
+            *Radio telescopes
+            *Cell phones? (I'm not sure how small this thing will be)
+    *Summary of past research
+        *That paper you sent me earlier
+        *Others? (I don't have a good sense of how much work has been done
+            along these lines).
+*Theory stuff
+    (One issue is that I'm not entirely sure when we moved from getting me up
+        to speed into doing actual work: some of this should probably be cut
+        as too basic).
+    *Explain 3 coupled oscillator model
+        *Justify dropping the aa and a^dagger a^dagger terms
+    *Adiabatic dark state transfer? (Not sure this really was relevant, so maybe
+        not).
+    *Model for interaction between the enviroment and the oscillators
+        (infinite serries of oscillators)
+    *Effectiveness of signal transmission
+    *Parameters to tweak to optimize SNR
+        (There's a pretty picture I've got about halfway done of a signal
+         traveling through the coupled oscillators).
+*Behevior of the charged membrane
+    *Effective circuit
+    *Quantization? (Not sure where we are with that: Thought I had it, but
+        IIRC you said it was wrong).
+*Antenna
+    *Explanation of choice in light of parameters we're optimizing
+    *Effective circuit
+*Put it all together?
+    *Maybe get actual numbers for the cavity and the membrane and compute
+        properties?
+*Future stuff
+    *Actually build one
+--------------------------------------------
+Most of the math is either cleaned up, or close: I don't have a good sense
+of what level of detail is appropriate here.

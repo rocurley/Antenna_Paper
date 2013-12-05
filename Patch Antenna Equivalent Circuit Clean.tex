@@ -1,0 +1,114 @@
+\documentclass[final]{article}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{grffile} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\pagestyle{empty}
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\newcommand{\bra} [1] {\left\langle#1\right|}
+\newcommand{\ket} [1] {\left|#1\right\rangle}
+\newcommand{\braket} [2] {\left\langle#1|#2\right\rangle}
+\newcommand{\ev} [1] {\left\langle#1\right\rangle}
+\newcommand{\Px} [0] {\begin{pmatrix} 0 & 1\\1 &0 \end{pmatrix}}
+\newcommand{\Py} [0] {\begin{pmatrix} 0 & -i\\i &0 \end{pmatrix}}
+\newcommand{\Pz} [0] {\begin{pmatrix} 1 & 0\\0 &-1 \end{pmatrix}}
+
+\begin{document}
+\begin{flushright}
+Roger Curley
+\end{flushright}
+For a patch antenna of height h, length L, width W, and ground plate thickness t, for the first mode (1 excitation lengthwise), the following circuit is a decent approximation of the actual behavior:\\
+\input{Antenna-circ.pdf_tex}\\
+Conductance:
+\[G=\frac{Wk}{2\eta_0} \left[1-\frac{1}{24}\left(\frac{2\pi h}{\lambda}\right)^2\right]\]
+Capacitance: \(B=\omega C\):
+\[B=\frac{Wk}{\eta_0} \left[\frac{1}{2}-\frac{1}{\pi} \ln\left(\frac{2\pi h}{\lambda}\right)\right]\]
+I've used the handbook's expression here: the lecture notes have the log squared, which seems wrong.
+Where \(k\) is the wavenumber in the material: that is to say:
+\[k=\frac{\omega}{c}\sqrt{\epsilon_{r_\text{eff}}}\]
+The above is from Nikolova's lecture notes, with points of confusion checked against the handbook of microstrip antennas.\\
+The lecture notes define \(L_{\text{eff}}/2=\lambda\), the "effective length". The resonant wavelength is slightly longer than the \(2L\) you would expect without the capacitance, and \(L_{\text{eff}}\) is the length of strip that would resonate at this frequency with a purely resistive load.
+\[L_{\text{eff}}=L+0.824h \frac{(\epsilon_{r_{\text{eff}}}+0.3)(W/h+0.264)}{(\epsilon_{r_{\text{eff}}}-0.258)(W/h+0.8)}\]
+For reasons I don't understand, the effective dielectric constant of the inside of the microstrip antenna is given by the following equation at frequencies below 8 GHZ:
+\[\epsilon_{r_{\text{eff}}}=\frac{\epsilon_r+1}{2}+\frac{\epsilon_r-1}{2}\frac{1}{\sqrt{1+12h/W}}\]
+Note that the vacuum is entirely unchanged.\\
+The only remaining parameters unspecified are the transmission line parameters. Let the propagation constant \(\gamma=\alpha+i\beta\). The lecture notes give, in DB per length:
+\[\alpha_d=27.3 \frac{\epsilon_r}{\sqrt{\epsilon_{r_{\text{eff}}}}}\frac{\epsilon_{r_{\text{eff}}}-1}{\epsilon_r-1} \frac{\tan(\delta)}{\lambda}\]
+Expressed instead in natural units, and in terms of the wavenumber:
+\[\alpha_d= \frac{\epsilon_r}{\sqrt{\epsilon_{r_{\text{eff}}}}}\frac{\epsilon_{r_{\text{eff}}}-1}{\epsilon_r-1} \tan(\delta) k\]
+\(\delta\) is the loss tangent of the dielectric. While \(\alpha\) is technically undefined for vacuum, it's almost certainty 0.\\
+Let's consider the thickness of the ground plate, h. To prevent the dominant mode from falling below the cutoff frequency, h must be set subject to the constraint that:
+\[h\leq\frac{0.3}{k \sqrt{\epsilon_r}}\]
+This more or less guarantees that \(W>h\). In that limit, it's advantageous to set h as high as possible.
+In this limit:
+\[\alpha_c=\frac{\sqrt{\epsilon_{r_{\text{eff}}}}R_s'}{2\eta_0 W_{\text{eff}}}\frac{W'}{h}\left(1+\frac{\frac{2}{3}}{\frac{W'}{h}+\frac{13}{9}}\right)\Lambda\]
+This expression is from the microsstrp antenna handbook, with some terms simplified as in the lecture notes.
+\[W'=W+\frac{5t}{4\pi}\left(1+\ln\left(\frac{2h}{t}\right)\right)\]
+\[\Lambda=1+\frac{h}{W'}\left(1+\frac{5t}{4\pi W}+\frac{5}{4\pi}\ln\left(\frac{2h}{t}\right)\right)\]
+This is a simplified version of  \(F_s\) in the handbook.
+\[W_{\text{eff}}=\frac{\eta_0}{\sqrt{\epsilon_{r_{\text{eff}}}} Z_0} h\]
+\[R_s'=\sqrt{\frac{\omega \mu}{2\sigma}}\left(1+\frac{2}{\pi} \arctan\left(1.4\left(\frac{\Delta}{\delta}\right)^2\right)\right)\]
+\(\Delta\) in this case is the surface roughness of the conductor: I'm going to set it to 0 for simplicty. The term that accounts for the roughness is \(F_{\Delta s}\) in the handbook.
+\[R_s'=\sqrt{\frac{\omega \mu}{2\sigma}}\]
+Where \(\sigma\) is the bulk conductivity.
+\[\alpha_c=\frac{\sqrt{\epsilon_{r_{\text{eff}}}}R_s'}{2\eta_0} \frac{\sqrt{\epsilon_{r_{\text{eff}}}} Z_0}{\eta_0} \frac{1}{h}\left(1+\frac{\frac{2}{3}}{\frac{W'}{h}+\frac{13}{9}}\right)
+\left(1+\frac{W'}{h}+\frac{5t}{4\pi W}+\frac{5}{4\pi}\ln\left(\frac{2h}{t}\right)\right)\]
+\[\alpha_c=\frac{\sqrt{\epsilon_{r_{\text{eff}}}}R_s'}{2\eta_0} \frac{\sqrt{\epsilon_{r_{\text{eff}}}} Z_0}{\eta_0} \frac{1}{h}\left(1+\frac{\frac{2}{3}}{\frac{W'}{h}+\frac{13}{9}}\right)
+\left(1+\frac{W'}{h}+\frac{5t}{4\pi W}+\frac{W'-W}{t}\right)\]
+\[W'=W+\frac{5t}{4\pi h} \left(1+\ln\left(\frac{2h}{t}\right)\right)\]
+\[Z_0=\frac{\eta_0}{\sqrt{\epsilon_{r_{\text{eff}}}}}\left[\frac{W}{h}+1.393+\frac{2}{3}\ln\left(\frac{W}{h}+1.44\right)\right]^{-1}\]
+We now have an expression for all the properties of the antenna. I'm going to create an antenna resonant at about 1 GHz, made of copper, with air instead of dielectric. This has the nice property that, to excellent approximation, \(\epsilon_r=\epsilon_{r_{\text{eff}}}=1\). Because I'm suspicious of the expression for \(L_{\text{eff}}\), I will pick length using \(L_{\text{eff}}\), but then re-derive the resonant frequency given that length.
+\[\frac{\pi c}{\omega}=\frac{\lambda_0}{2}=L_{\text{eff}}=L+0.824h \frac{(1+0.3)(W/h+0.264)}{(1-0.258)(W/h+0.8)}\]
+The lecture notes advise:
+\[W=\frac{\lambda_0}{2}\sqrt{\frac{2}{\epsilon_r+1}}=\frac{\lambda_0}{2}=L_{\text{eff}}=150 \text{ mm}\]
+\[W=L+0.824h \frac{(1+0.3)(W/h+0.264)}{(1-0.258)(W/h+0.8)}\]
+\[h=\frac{0.3}{k_0 \sqrt{\epsilon_r}}=\frac{0.3}{2\pi} \lambda_0=7.16 \text{ mm}\]
+\[\left(\frac{1}{2}-0.824 \frac{0.3}{2\pi} \frac{(1+0.3)(\pi/0.3+0.264)}{(1-0.258)(\pi/0.3+0.8)}\right)\lambda_0=0.434\lambda_0=L=130 \text{ mm}\]
+I'm going to define \(f=f_r \times 1\text{ Ghz}\):
+\[G=\frac{Wk_0 f_r}{2\eta_0} \left[1-\frac{1}{24}\left(hk_0 f_r\right)^2\right]=\frac{\pi f_r}{2\eta_0} \left[1-3.8\times 10^{-3}f_r^2\right]
+\approx f_r \frac{1.571}{\eta_0}\]
+\[B=\frac{Wk_0 f_r}{\eta_0} \left[\frac{1}{2}-\frac{1}{\pi} \ln\left(hk_0 f_r\right)\right]=
+\frac{\pi f_r}{\eta_0} \left[\frac{1}{2}-\frac{1}{\pi} \ln\left(0.3 f_r\right)\right]=
+\frac{\pi f_r}{\eta_0} \left[0.883-\frac{\ln(f_r)}{\pi} \right]\approx f_r\frac{2.774}{\eta_0}\]
+\[Y_0=\frac{\sqrt{\epsilon_{r_{\text{eff}}}}}{\eta_0}\left[\frac{W}{h}+1.393+\frac{2}{3}\ln\left(\frac{W}{h}+1.44\right)\right]=
+\frac{1}{\eta_0}\left[\frac{\pi}{0.3}+1.393+\frac{2}{3}\ln\left(\frac{\pi}{0.3}+1.44\right)\right]=\frac{13.52}{\eta_0}\]
+The loss tangent of air is 0ish, so we can disregard the dielectric losses.
+For copper:
+\[R_s'=\sqrt{\frac{\omega \mu}{2\sigma}}=\sqrt{f_r} 8.619\times 10^{-6} \eta_0\]
+We haven't set t yet, and none of my sources have any suggestions.
+This would support choosing \(t\rightarrow \infty\). However, I suspect this model will break down if you try to do that: it will eventually lead to negative \(\alpha\), which becomes singular if you keep going. I'm going to pick \(t=h\), because it's simple, and because it seems to be well within the reasonable range of this model.
+\[W'=W+\frac{5h}{4\pi}\left(1+\ln\left(2\right)\right)=1.064 W=160 \text{ mm}\]
+\[\alpha_c=\frac{R_s'}{2\eta_0} \frac{Z_0}{\eta_0} \frac{1}{h}\left(1+\frac{\frac{2}{3}}{11.15+\frac{13}{9}}\right)
+\left(1+11.15+\frac{5}{4\pi 11.15}+0.674\right)\]
+\[\alpha_c=\frac{R_s'}{\eta_0} \frac{6.770}{13.52} \frac{1}{h}=\frac{4.316\times 10^{-6}}{h}\sqrt{f_r}=\frac{3.923\times 10^{-5}}{L}\sqrt{f_r}\]
+The total admittance is therefore:
+\[Y_{\text{in}}=G+iB+Y_0 \frac{(G+iB)+Y_0\tanh((\alpha+i\beta) L)}{Y_0+(G+iB)\tanh((\alpha+i\beta) L)}\]
+We can now solve for the true resonant frequency: where \(Y_{\text{in}}\) is real.
+\[\beta L=\pi \frac{L}{\lambda}=\pi\times0.434 f_r=1.363 f_r\]
+\[(\alpha+i\beta) L=9.900\times 10^{-5}\sqrt{f_r}+1.368 i f_r\]
+Solving this in terms of \(f_r\), we get:
+\[f_r^0=1.003\]
+The resonant frequency is 1003 MHz. This is a nice sanity check, as it's very close to the frequency we were trying to get by setting \(L_\text{eff}\).
+\[Y_0(1003\text{ Mhz})=\frac{122.33}{\eta_0}=\frac{1}{3.079 \Omega}\]
+There's something interesting here: the resonant frequency (where the admittance is real) is not the frequency where the real component of the admittance is maximal (as it is for an RLC circuit), although they are close. Calculating the overall Q gets me:
+\[Q_\Sigma=6.814\]
+If we approximate the antenna with an RLC circuit with the same resistance, Q, and resonant frequency, we get an excellent correspondence for the real component:\\
+\includegraphics{Patch_Antenna_Admittance}\\
+(The blue line and red lines are the antenna's real and imaginary admittance. The gold and green lines are the RLC's real and imaginary admittance. Frequency is in GHz, and the admittance is in terms of the admittance of free space.)\\
+Now, I'm not 100\% sure how to properly calculate the Q with respect to transmission line losses. However, Q's add harmonically, so:
+\[\frac{1}{Q_\Sigma}=\frac{1}{Q_\text{rad}}+\frac{1}{Q_\alpha}\]
+If \(Q_\text{rad}\) is the Q with \(\alpha=0\), then this is easy.
+\[Q_\text{rad}=6.816\]
+This gets me:
+\[Q_\alpha=18,920\]
+I'm suspicious of this figure, because I think the difference in Q is swamped by the lack of precision in our model. On the other hand, it seems plausible that the difference in Q between the lossy and lossless line is not really affected by the errors in the model.
+\end{document}
