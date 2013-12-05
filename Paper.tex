@@ -29,9 +29,10 @@ Add real person citations
 
 \subsection*{Introduction}
 \subsection*{Background}
-One source of noise in antennas is thermal noise. The thermal motion of electrons creates a random current, carrying a power proportional to the temperature of the electronics. In many cases this is not the dominant source of noise: other competing signals will cause far more trouble. However, thermal noise is strong enough to be a problem when the signal is at a very low frequency, where thermal sources generate little competition. Note that this is not a power transfer problem: the antenna signal is recorded, but it's not distinguishable from the thermal noise of the circuitry. Current radio telescopes compensate for this effect by using liquid helium cooling to keep thermal noise down.
+One source of noise in antennas is thermal noise. The thermal motion of electrons creates a random current, carrying power proportional to the temperature of the electronics. In many cases this is not the dominant source of noise: other competing signals will cause far more trouble. However, thermal noise is strong enough to be a problem when the signal is at a very low frequency, where thermal sources generate little competition. Note that this is not a power transfer problem: the antenna signal is recorded, but it's not distinguishable from the thermal noise of the circuitry. Current radio telescopes compensate for this effect by using liquid helium cooling to keep thermal noise down.
 
 One such source of particular interest is the 21 cm H1 line, associated with the transition of a hydrogen atom from antiparallel to parallel spins. The 21 cm line allows the mapping of cold hydrogen gas, making it of considerable interest to astronomers. 21 cm lines are very faint, as the transition associated with them is very rare.
+\\TODO: section headings that are less dumb
 \subsection*{Theory stuff}
 We'll be investigating a toy model for an antenna coupled to an optical cavity: three coupled simple harmonic oscillators in the rotating wave approximation.
 \[H=\sum_i \omega_i a_i^\dagger a_i-\sum_{\langle i,j\rangle} g_{ij} a_i^\dagger a_j\]
@@ -42,7 +43,7 @@ This assumption allows us to switch to a more tractable basis:
 \[\bar g=\sqrt{g_{12}^2+g_{23}^2}\]
 \[H=\omega_1\left(a_D^\dagger a_D+a_B^\dagger a_B\right)+\omega_2a_2^\dagger a_2-\bar g\left(a_2^\dagger a_B+a_B^\dagger a_2\right)\]
 Note that, in the Heisenberg picture, \(a_D(t)=e^{-i\omega_1 t} a_D(0)\): The "dark state" operator is static, up to phase. Therefore, excitations of the dark state are preserved by time evolution.\\
-This implies a useful option: If \(g\)s are changed adiabatically from \(g_{12}=0\) to \(g_{23}=0\), then excitations in the first oscillator will become excitations of the third: the dark state is transfered. (http://arxiv.org/abs/1205.5284)
+This implies a useful possibility: If \(g\)s are changed adiabatically from \(g_{12}=0\) to \(g_{23}=0\), then excitations in the first oscillator will become excitations of the third: the dark state is transfered. (http://arxiv.org/abs/1205.5284)
 
 However, we want to consider a system with damping. We can do so using the input-operator formalism: coupling each oscillator to an infinite series of oscillators. For one oscillator \(a\) coupled to an infinite set of oscilators \(b_k\), we have:
 \[H=\omega_0 a^\dagger a+\sum_k (g_k a^\dagger b_k+g_k^* b_k^\dagger a+\omega_k b_k^\dagger b_k)\]
@@ -71,7 +72,7 @@ For maximal information transfer at resonance, we want the damping (in all compo
 
 TODO: Make a non-terrible transition that says: "Now we'll justify treating everything as SHOs".
 
-One antenna with a high Q-factor is a patch antenna: two parallel conducting plates. This can be modeled as a microstrip transmission line, with a resistive and capacitive connection across it at both ends. (Microstrip antenna handbook, Nikolova lecture notes.
+One antenna with a high Q-factor is a patch antenna: two parallel conducting plates. This can be modeled as a microstrip transmission line, with a resistive and capacitive connection across it at both ends. (Microstrip antenna handbook, Nikolova lecture notes).
 
 \input{Antenna-circ.pdf_tex}\\
 TODO: Diagram showing which physical dimension is which.\\
@@ -99,6 +100,7 @@ We have the Q due to radiation losses of \(Q_{\text{rad}}=6.816\) and Q due to l
 TODO: Another nonterrible transition.\\
 TODO: Circuit diagram of membrane.\\
 If the membrane is kept at a relatively large DC offset, its behavior can be approximated as linear, and it too can be treated as a SHO.\\
-TODO: Graph of membrane response vs SHO approximation?
+TODO: Graph of membrane response vs SHO approximation?\\
+Finally we have the optical cavity, which is an SHO to excellent approximation (TODO: Make sure that's true). Thus all three components can be treated as simple harmonic oscillators, and the model is fairly reasonable.
 \end{document}
 \end{document}
