@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by webtronics 0.1-->
+
+<svg
+   xmlns:wtx="http://code.google.com/p/webtronics"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="621"
+   height="320"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="EQ-circ.svg">
+  <metadata
+     id="metadata55">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs53" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     id="namedview51"
+     showgrid="false"
+     inkscape:zoom="4"
+     inkscape:cx="367.74183"
+     inkscape:cy="186.42969"
+     inkscape:window-x="-8"
+     inkscape:window-y="1016"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     class="coil"
+     id="L"
+     connects="0,10;60,10"
+     transform="translate(331.49194,194.84677)"
+     style="stroke:#000000;stroke-width:2px">
+    <metadata
+       class="part"
+       id="metadata7">
+      <wtx:part>
+        <wtx:pins>
+          <wtx:analog>
+            <wtx:node
+               y="10"
+               x="0"
+               index="1" />
+            <wtx:node
+               y="10"
+               x="60"
+               index="2" />
+          </wtx:analog>
+        </wtx:pins>
+        <wtx:id>l</wtx:id>
+        <wtx:type>l</wtx:type>
+        <wtx:name>coil</wtx:name>
+        <wtx:category>inductors</wtx:category>
+        <wtx:flip />
+        <wtx:value />
+        <wtx:label />
+        <wtx:spice />
+        <wtx:model />
+      </wtx:part>
+    </metadata>
+    <path
+       d="m 0,10 10,0 c 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 h 10"
+       id="path2905"
+       inkscape:connector-curvature="0"
+       style="fill:none" />
+  </g>
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 311.49194,194.84677 0,20"
+     id="path3412" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 321.49194,194.84677 0,20"
+     id="path3414" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 321.49194,204.84677 10,0"
+     id="path3420" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 391.49194,204.84677 5.42415,0"
+     id="path2159" />
+  <g
+     class="coil"
+     id="g25"
+     connects="0,10;60,10"
+     transform="translate(331.49194,144.84677)"
+     style="stroke:#000000;stroke-width:2px">
+    <metadata
+       class="part"
+       id="metadata27">
+      <wtx:part>
+        <wtx:pins>
+          <wtx:analog>
+            <wtx:node
+               y="10"
+               x="0"
+               index="1" />
+            <wtx:node
+               y="10"
+               x="60"
+               index="2" />
+          </wtx:analog>
+        </wtx:pins>
+        <wtx:id>l</wtx:id>
+        <wtx:type>l</wtx:type>
+        <wtx:name>coil</wtx:name>
+        <wtx:category>inductors</wtx:category>
+        <wtx:flip />
+        <wtx:value />
+        <wtx:label />
+        <wtx:spice />
+        <wtx:model />
+      </wtx:part>
+    </metadata>
+    <path
+       d="m 0,10 10,0 c 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 h 10"
+       id="path29"
+       inkscape:connector-curvature="0"
+       style="fill:none" />
+  </g>
+  <path
+     id="line39"
+     style="fill:none;stroke:#000000;stroke-width:2"
+     d="m 331.49194,154.84677 -30,0 0,50 10,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+  <path
+     id="line47"
+     style="fill:none;stroke:#000000;stroke-width:2"
+     d="m 391.49194,154.84677 40,0 0,50 -4.58965,0 -2.28141,4.81813 -3.62415,-10.29588 -3.65496,10.06688 -4.088,-10.12741 -3.43737,10.31316 -4.07603,-10.44661 -3.71807,10.58005 -3.02936,-9.86466 -2.36097,5.92978"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccccccccc" />
+  <circle
+     d="m 413,270 c 0,1.65685 -1.34315,3 -3,3 -1.65685,0 -3,-1.34315 -3,-3 0,-1.65685 1.34315,-3 3,-3 1.65685,0 3,1.34315 3,3 z"
+     cx="410"
+     cy="270"
+     r="3"
+     id="circle41"
+     sodipodi:cx="410"
+     sodipodi:cy="270"
+     sodipodi:rx="3"
+     sodipodi:ry="3"
+     transform="translate(-108.50806,-90.153226)"
+     style="fill:#000000;stroke:#000000" />
+  <circle
+     d="m 543,270 c 0,1.65685 -1.34315,3 -3,3 -1.65685,0 -3,-1.34315 -3,-3 0,-1.65685 1.34315,-3 3,-3 1.65685,0 3,1.34315 3,3 z"
+     cx="540"
+     cy="270"
+     r="3"
+     id="circle49"
+     sodipodi:cx="540"
+     sodipodi:cy="270"
+     sodipodi:rx="3"
+     sodipodi:ry="3"
+     transform="translate(-108.50806,-90.153226)"
+     style="fill:#000000;stroke:#000000" />
+  <g
+     style="stroke:#000000;stroke-width:2px"
+     transform="translate(331.49194,194.84677)"
+     connects="0,10;60,10"
+     id="g3006"
+     class="coil">
+    <metadata
+       id="metadata3008"
+       class="part">
+      <wtx:part>
+        <wtx:pins>
+          <wtx:analog>
+            <wtx:node
+               index="1"
+               x="0"
+               y="10" />
+            <wtx:node
+               index="2"
+               x="60"
+               y="10" />
+          </wtx:analog>
+        </wtx:pins>
+        <wtx:id>l</wtx:id>
+        <wtx:type>l</wtx:type>
+        <wtx:name>coil</wtx:name>
+        <wtx:category>inductors</wtx:category>
+        <wtx:flip />
+        <wtx:value />
+        <wtx:label />
+        <wtx:spice />
+        <wtx:model />
+      </wtx:part>
+    </metadata>
+    <path
+       style="fill:none"
+       inkscape:connector-curvature="0"
+       id="path3010"
+       d="m 0,10 10,0 c 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 h 10" />
+  </g>
+  <path
+     id="path3012"
+     d="m 311.49194,194.84677 0,20"
+     inkscape:connector-curvature="0"
+     style="stroke:#000000;stroke-width:2px" />
+  <path
+     id="path3014"
+     d="m 321.49194,194.84677 0,20"
+     inkscape:connector-curvature="0"
+     style="stroke:#000000;stroke-width:2px" />
+  <path
+     id="path3016"
+     d="m 321.49194,204.84677 10,0"
+     inkscape:connector-curvature="0"
+     style="stroke:#000000;stroke-width:2px" />
+  <path
+     id="path3018"
+     d="m 391.49194,204.84677 5.42415,0"
+     inkscape:connector-curvature="0"
+     style="stroke:#000000;stroke-width:2px" />
+  <g
+     style="stroke:#000000;stroke-width:2px"
+     transform="translate(341.39143,97.973143)"
+     connects="0,10;60,10"
+     id="g3020"
+     class="coil">
+    <metadata
+       id="metadata3022"
+       class="part">
+      <wtx:part>
+        <wtx:pins>
+          <wtx:analog>
+            <wtx:node
+               index="1"
+               x="0"
+               y="10" />
+            <wtx:node
+               index="2"
+               x="60"
+               y="10" />
+          </wtx:analog>
+        </wtx:pins>
+        <wtx:id>l</wtx:id>
+        <wtx:type>l</wtx:type>
+        <wtx:name>coil</wtx:name>
+        <wtx:category>inductors</wtx:category>
+        <wtx:flip />
+        <wtx:value />
+        <wtx:label />
+        <wtx:spice />
+        <wtx:model />
+      </wtx:part>
+    </metadata>
+    <path
+       style="fill:none"
+       inkscape:connector-curvature="0"
+       id="path3024"
+       d="m 0,10 10,0 c 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 h 10" />
+  </g>
+  <path
+     id="path3026"
+     d="m 321.39143,97.973143 0,19.999997"
+     inkscape:connector-curvature="0"
+     style="stroke:#000000;stroke-width:2px" />
+  <path
+     id="path3028"
+     d="m 331.39143,97.973143 0,19.999997"
+     inkscape:connector-curvature="0"
+     style="stroke:#000000;stroke-width:2px" />
+  <path
+     id="path3030"
+     d="m 331.39143,107.97314 10,0"
+     inkscape:connector-curvature="0"
+     style="stroke:#000000;stroke-width:2px" />
+  <path
+     id="path3034"
+     style="fill:none;stroke:#000000;stroke-width:2"
+     d="m 301.49194,179.84677 -19.25001,0 0,-71.87363 38.45808,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+  <g
+     class="coil"
+     id="g3036"
+     connects="0,10;60,10"
+     transform="translate(341.39143,97.973143)"
+     style="stroke:#000000;stroke-width:2px">
+    <metadata
+       class="part"
+       id="metadata3038">
+      <wtx:part>
+        <wtx:pins>
+          <wtx:analog>
+            <wtx:node
+               y="10"
+               x="0"
+               index="1" />
+            <wtx:node
+               y="10"
+               x="60"
+               index="2" />
+          </wtx:analog>
+        </wtx:pins>
+        <wtx:id>l</wtx:id>
+        <wtx:type>l</wtx:type>
+        <wtx:name>coil</wtx:name>
+        <wtx:category>inductors</wtx:category>
+        <wtx:flip />
+        <wtx:value />
+        <wtx:label />
+        <wtx:spice />
+        <wtx:model />
+      </wtx:part>
+    </metadata>
+    <path
+       d="m 0,10 10,0 c 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 h 10"
+       id="path3040"
+       inkscape:connector-curvature="0"
+       style="fill:none" />
+  </g>
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 321.39143,97.973143 0,19.999997"
+     id="path3042" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 331.39143,97.973143 0,19.999997"
+     id="path3044" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 331.39143,107.97314 10,0"
+     id="path3046" />
+  <path
+     id="path3048"
+     style="fill:none;stroke:#000000;stroke-width:2px"
+     d="m 401.39143,107.97314 54.85051,0 0,71.87363 -24.75,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+</svg>

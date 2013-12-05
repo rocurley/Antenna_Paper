@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by webtronics 0.1-->
+
+<svg
+   xmlns:wtx="http://code.google.com/p/webtronics"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="621"
+   height="320"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="EQ-circ.svg">
+  <metadata
+     id="metadata55">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs53" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     id="namedview51"
+     showgrid="false"
+     inkscape:zoom="4"
+     inkscape:cx="370.56052"
+     inkscape:cy="95.058672"
+     inkscape:window-x="-8"
+     inkscape:window-y="1016"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     class="coil"
+     id="L"
+     connects="0,10;60,10"
+     transform="translate(331.49194,194.84677)"
+     style="stroke:#000000;stroke-width:2px">
+    <metadata
+       class="part"
+       id="metadata7">
+      <wtx:part>
+        <wtx:pins>
+          <wtx:analog>
+            <wtx:node
+               y="10"
+               x="0"
+               index="1" />
+            <wtx:node
+               y="10"
+               x="60"
+               index="2" />
+          </wtx:analog>
+        </wtx:pins>
+        <wtx:id>l</wtx:id>
+        <wtx:type>l</wtx:type>
+        <wtx:name>coil</wtx:name>
+        <wtx:category>inductors</wtx:category>
+        <wtx:flip />
+        <wtx:value />
+        <wtx:label />
+        <wtx:spice />
+        <wtx:model />
+      </wtx:part>
+    </metadata>
+    <path
+       d="m 0,10 10,0 c 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 h 10"
+       id="path2905"
+       inkscape:connector-curvature="0"
+       style="fill:none" />
+  </g>
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 311.49194,194.84677 0,20"
+     id="path3412" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 321.49194,194.84677 0,20"
+     id="path3414" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 321.49194,204.84677 10,0"
+     id="path3420" />
+  <path
+     style="stroke:#000000;stroke-width:2px"
+     inkscape:connector-curvature="0"
+     d="m 391.49194,204.84677 5.42415,0"
+     id="path2159" />
+  <g
+     class="coil"
+     id="g25"
+     connects="0,10;60,10"
+     transform="translate(331.49194,144.84677)"
+     style="stroke:#000000;stroke-width:2px">
+    <metadata
+       class="part"
+       id="metadata27">
+      <wtx:part>
+        <wtx:pins>
+          <wtx:analog>
+            <wtx:node
+               y="10"
+               x="0"
+               index="1" />
+            <wtx:node
+               y="10"
+               x="60"
+               index="2" />
+          </wtx:analog>
+        </wtx:pins>
+        <wtx:id>l</wtx:id>
+        <wtx:type>l</wtx:type>
+        <wtx:name>coil</wtx:name>
+        <wtx:category>inductors</wtx:category>
+        <wtx:flip />
+        <wtx:value />
+        <wtx:label />
+        <wtx:spice />
+        <wtx:model />
+      </wtx:part>
+    </metadata>
+    <path
+       d="m 0,10 10,0 c 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 0,0 0,-10 5,-10 5,0 5,10 5,10 h 10"
+       id="path29"
+       inkscape:connector-curvature="0"
+       style="fill:none" />
+  </g>
+  <path
+     id="line39"
+     style="fill:none;stroke:#000000;stroke-width:2"
+     d="m 331.49194,154.84677 -30,0 0,50 10,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+  <path
+     id="line47"
+     style="fill:none;stroke:#000000;stroke-width:2"
+     d="m 391.49194,154.84677 40,0 0,50 -4.58965,0 -2.28141,4.81813 -3.62415,-10.29588 -3.65496,10.06688 -4.088,-10.12741 -3.43737,10.31316 -4.07603,-10.44661 -3.71807,10.58005 -3.02936,-9.86466 -2.36097,5.92978"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccccccccc" />
+  <g
+     id="g3044"
+     transform="translate(0,5)">
+    <line
+       style="stroke:#000000;stroke-width:2"
+       id="line35"
+       y2="174.84677"
+       x2="241.49193"
+       y1="174.84677"
+       x1="301.49194" />
+    <circle
+       style="fill:#000000;stroke:#000000"
+       transform="translate(-108.50806,-95.153226)"
+       sodipodi:ry="3"
+       sodipodi:rx="3"
+       sodipodi:cy="270"
+       sodipodi:cx="410"
+       id="circle41"
+       r="3"
+       cy="270"
+       cx="410"
+       d="m 413,270 c 0,1.65685 -1.34315,3 -3,3 -1.65685,0 -3,-1.34315 -3,-3 0,-1.65685 1.34315,-3 3,-3 1.65685,0 3,1.34315 3,3 z" />
+    <line
+       style="stroke:#000000;stroke-width:2"
+       id="line43"
+       y2="174.84677"
+       x2="501.49194"
+       y1="174.84677"
+       x1="431.49194" />
+    <circle
+       style="fill:#000000;stroke:#000000"
+       transform="translate(-108.50806,-95.153226)"
+       sodipodi:ry="3"
+       sodipodi:rx="3"
+       sodipodi:cy="270"
+       sodipodi:cx="540"
+       id="circle49"
+       r="3"
+       cy="270"
+       cx="540"
+       d="m 543,270 c 0,1.65685 -1.34315,3 -3,3 -1.65685,0 -3,-1.34315 -3,-3 0,-1.65685 1.34315,-3 3,-3 1.65685,0 3,1.34315 3,3 z" />
+  </g>
+</svg>
