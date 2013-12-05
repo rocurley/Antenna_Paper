@@ -2,34 +2,63 @@
 *Background
     *Problem we're trying to solve
         *Explanation of thermal noise problem
-        *Possible applications for reducing it 
+        *Possible applications for reducing it
             *Radio telescopes
             *Cell phones? (I'm not sure how small this thing will be)
+
+JMT: I would drop the cell phones part, focus on the radio astronomy part, particularly the 21 cm line of hydrogen (around 1.4 GHz).
+
+JMT: A key idea to introduce early on is the difference between efficient power transfer and efficient information transfer.
+
     *Summary of past research
         *That paper you sent me earlier
         *Others? (I don't have a good sense of how much work has been done
             along these lines).
+
+JMT: lots has been done.  Some other recent papers http://arxiv.org/abs/1305.6962, http://arxiv.org/abs/1310.5276 -- you can go through these, and the papers they cite, to get a better sense of the literature
+
 *Theory stuff
-    (One issue is that I'm not entirely sure when we moved from getting me up
-        to speed into doing actual work: some of this should probably be cut
-        as too basic).
+
+JMT: we start with a 'toy model' -- 3 coupled oscillators.
+
     *Explain 3 coupled oscillator model
         *Justify dropping the aa and a^dagger a^dagger terms
+
+JMT: This is the 'rotating wave' approximation
+
     *Adiabatic dark state transfer? (Not sure this really was relevant, so maybe
         not).
+
+JMT: mention this, but in passing, and cite the appropriate works (e.g., http://arxiv.org/abs/1205.5284)
+
     *Model for interaction between the enviroment and the oscillators
         (infinite serries of oscillators)
+
+JMT: You are actually using the input-operator formalism.
+
     *Effectiveness of signal transmission
+
+JMT: I don't know why this means.  I think you mean quantum transduction?
+
     *Parameters to tweak to optimize SNR
         (There's a pretty picture I've got about halfway done of a signal
          traveling through the coupled oscillators).
-*Behevior of the charged membrane
-    *Effective circuit
-    *Quantization? (Not sure where we are with that: Thought I had it, but
-        IIRC you said it was wrong).
+
+
+JMT: Now you seek to map the toy model to an actual physical system.  I would start with the patch antenna, whose properties are new for this community, instead of the electromechanical circuit.
+
 *Antenna
     *Explanation of choice in light of parameters we're optimizing
     *Effective circuit
+
+
+*Behavior of the charged membrane
+    *Effective circuit
+    *Quantization? (Not sure where we are with that: Thought I had it, but
+        IIRC you said it was wrong).
+
+JMT: I think you should include this part only qualitatively, to motivate the model of a mechanical oscillator as an electrical circuit.  I would recommend you also stay away from circuit quantization -- it is a subtle thing, but fun to spend a bit of time on...which you don't have at the moment.  Instead, your goal will instead be getting some well defined equations of motion, from which we can map to the oscillator model.
+
 *Put it all together?
     *Maybe get actual numbers for the cavity and the membrane and compute
         properties?
